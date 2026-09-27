@@ -4,25 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Far From Hibernia</title>
+    <!-- Explicit https:// paths ensure fonts can load when previewing local HTML files -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    
     <style>
         body {
             background-color: #121212;
             color: #ffffff;
             font-family: 'Helvetica Neue', Arial, sans-serif;
             text-align: center;
-            padding: 40px 20px;
+            padding: 20px;
             margin: 0;
         }
-        h1 {
-            font-size: 2.5rem;
-            letter-spacing: 2px;
-            margin-bottom: 5px;
+        
+        /* The Header Banner Wrapper - Upgraded with a textured background and border */
+        .header-banner {
+            display: flex;
+            align-items: center; /* Centers items vertically */
+            justify-content: flex-start; /* Aligns items all the way to the left */
+            gap: 25px; /* Space between the larger logo and text */
+            margin: 0 auto 40px auto; /* Keeps the container centered on page, but text is left-aligned inside */
+            padding: 15px 25px; /* Added inner spacing around the content */
+            
+            /* CSS-generated textured background (subtle carbon/weave grid effect) */
+            background-color: #1a1a1a;
+            background-image: 
+                linear-gradient(30deg, #151515 12%, transparent 12.5%, transparent 87%, #151515 87.5%, #151515),
+                linear-gradient(150deg, #151515 12%, transparent 12.5%, transparent 87%, #151515 87.5%, #151515),
+                linear-gradient(30deg, #151515 12%, transparent 12.5%, transparent 87%, #151515 87.5%, #151515),
+                linear-gradient(150deg, #151515 12%, transparent 12.5%, transparent 87%, #151515 87.5%, #151515),
+                linear-gradient(60deg, #1c1c1c 25%, transparent 25.5%, transparent 75%, #1c1c1c 75.5%, #1c1c1c),
+                linear-gradient(60deg, #1c1c1c 25%, transparent 25.5%, transparent 75%, #1c1c1c 75.5%, #1c1c1c);
+            background-size: 20px 35px;
+            background-position: 0 0, 0 0, 10px 18px, 10px 18px, 0 0, 10px 18px;
+
+            /* Elegant gold accent borders matching the text */
+            border-top: 3px double #f1b82d;
+            border-bottom: 3px double #f1b82d;
+            
+            /* Clean drop shadow to separate the header from the page background */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
-        .subtitle {
-            color: #aaaaaa;
-            font-size: 1.2rem;
-            margin-bottom: 40px;
+
+        /* The Band Logo Styling */
+        .band-logo {
+            height: 120px; 
+            width: auto;
+            border-radius: 6px; 
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Adds a small shadow to pop the logo off the texture */
         }
+
+        /* The Celtic Band Name Styling */
+        .band-title {
+            font-family: 'Uncial Antiqua', Times, 'Times New Roman', serif; /* Included your fallback styles */
+            font-size: 3.5rem; 
+            margin: 0;
+            letter-spacing: 1px;
+            color: #f1b82d; 
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Darkened shadow slightly for better visibility against texture */
+        }
+
         .banner-container {
             max-width: 800px;
             margin: 0 auto;
@@ -38,8 +81,17 @@
     </style>
 </head>
 <body>
+
+    <!-- Top Header Banner Section (Left-aligned with background texture) -->
+    <header class="header-banner">
+        <img src="media/images/Far%20From%20Hibernia%20Logo.jpg" alt="Far From Hibernia Logo" class="band-logo">
+        <h1 class="band-title">Far From Hibernia</h1>
+    </header>
+
+    <!-- Gig Flyer Section -->
     <div class="banner-container">
         <img src="media/images/20261009%20Callahans%20Flyer.jpg" alt="Far From Hibernia Live at Callahans - October 9, 2026" class="gig-banner">
     </div>
+
 </body>
 </html>
