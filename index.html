@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Far From Hibernia</title>
-    <!-- Explicit https:// paths ensure fonts can load when previewing local HTML files -->
+
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap" rel="stylesheet">
     
     <style>
+        /* Smooth scrolling physics when clicking menu links */
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: #121212;
             color: #ffffff;
@@ -20,14 +24,15 @@
             margin: 0;
         }
         
-        /* The Header Banner Wrapper - Upgraded with a textured background and border */
+        /* The Header Banner Wrapper with textured background, borders, and flex navigation */
         .header-banner {
             display: flex;
             align-items: center; /* Centers items vertically */
-            justify-content: flex-start; /* Aligns items all the way to the left */
-            gap: 25px; /* Space between the larger logo and text */
-            margin: 0 auto 40px auto; /* Keeps the container centered on page, but text is left-aligned inside */
-            padding: 15px 25px; /* Added inner spacing around the content */
+            justify-content: space-between; /* Pushes brand to left, nav menu to right */
+            flex-wrap: wrap; /* Allows wrapping gracefully on smaller mobile displays */
+            gap: 25px; 
+            margin: 0 auto 40px auto; 
+            padding: 15px 25px; 
             
             /* CSS-generated textured background (subtle carbon/weave grid effect) */
             background-color: #1a1a1a;
@@ -41,7 +46,7 @@
             background-size: 20px 35px;
             background-position: 0 0, 0 0, 10px 18px, 10px 18px, 0 0, 10px 18px;
 
-            /* Elegant gold accent borders matching the text */
+            /* Elegant gold accent borders */
             border-top: 3px double #f1b82d;
             border-bottom: 3px double #f1b82d;
             
@@ -49,50 +54,297 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
 
+        /* Branding container holding logo and text */
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
         /* The Band Logo Styling */
         .band-logo {
             height: 120px; 
             width: auto;
             border-radius: 6px; 
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Adds a small shadow to pop the logo off the texture */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); 
         }
 
-        /* The Celtic Band Name Styling */
+        /* Eagle Lake Typography Tuning */
         .band-title {
-            font-family: 'Eagle Lake', Times, 'Times New Roman', serif; /* Included your fallback styles */
+            font-family: 'Eagle Lake', serif;
             font-size: 3.2rem; 
             margin: 0;
-            letter-spacing: 1px;
+            letter-spacing: 0;
             color: #f1b82d; 
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Darkened shadow slightly for better visibility against texture */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); 
         }
 
-        .banner-container {
+        /* Top Navigation Link Menu */
+        .top-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .top-nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .top-nav a:hover {
+            color: #f1b82d;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Main Structural Containers for Content Sections */
+        .content-container {
             max-width: 800px;
             margin: 0 auto;
+            text-align: left; /* Changes text baseline to readable left-align for blocks */
+        }
+
+        .content-section {
+            padding: 60px 0;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        /* Section Headings */
+        .section-title {
+            font-family: 'Eagle Lake', serif;
+            color: #f1b82d;
+            font-size: 2rem;
+            margin-top: 0;
+            margin-bottom: 30px;
+            border-bottom: 1px dashed #f1b82d;
+            padding-bottom: 10px;
+        }
+
+        /* Gigs Table Styling tailored to Eagle Lake font */
+        .gigs-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Eagle Lake', serif;
+            font-size: 1.1rem;
+            color: #dddddd;
+            margin-bottom: 20px;
+        }
+
+        .gigs-table tr {
+            border-bottom: 1px solid #2a2a2a;
+            transition: background-color 0.2s ease;
+        }
+
+        .gigs-table tr:hover {
+            background-color: rgba(241, 184, 45, 0.05); /* Subtle gold background on hover */
+        }
+
+        .gigs-table td {
+            padding: 15px 10px;
+            vertical-align: middle;
+        }
+
+        /* Specific text balances for gig information columns */
+        .gig-date {
+            color: #f1b82d;
+            font-weight: bold;
+            width: 25%;
+        }
+
+        .gig-venue {
+            font-weight: bold;
+            color: #ffffff;
+            width: 45%;
+        }
+
+        .gig-location {
+            color: #aaaaaa;
+            text-align: right;
+            width: 30%;
+        }
+
+        .gigs-footnote {
+            font-family: 'Eagle Lake', serif;
+            font-style: italic;
+            color: #aaaaaa;
+            display: block;
+            margin: 15px 0 35px 0;
+            font-size: 1rem;
+        }
+
+        /* Gigs/Flyer Display Section */
+        .banner-container {
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             border-radius: 8px;
             overflow: hidden;
+            margin-bottom: 20px;
         }
+
         .gig-banner {
             width: 100%;
             height: auto;
             display: block;
         }
+
+        /* About Section Multi-Column Layout Split */
+        .about-layout {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .about-image-wrapper {
+            flex: 1 1 300px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .about-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-text {
+            flex: 1 1 400px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #dddddd;
+            margin: 0;
+        }
+
+        /* Contact Details Section Styling */
+        .contact-card {
+            background-color: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .contact-card p {
+            font-size: 1.1rem;
+            margin: 10px 0;
+        }
+
+        .booking-btn {
+            display: inline-block;
+            background-color: #f1b82d;
+            color: #121212;
+            padding: 12px 24px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 15px;
+            transition: background-color 0.2s ease;
+        }
+
+        .booking-btn:hover {
+            background-color: #dca31f;
+        }
+
+        /* Responsive Layout Overrides for Mobile Phones */
+        @media (max-width: 768px) {
+            .header-banner {
+                flex-direction: column;
+                text-align: center;
+                justify-content: center;
+                padding: 20px 10px;
+            }
+            .brand-container {
+                flex-direction: column;
+            }
+            .top-nav {
+                justify-content: center;
+                width: 100%;
+            }
+            .band-title {
+                font-size: 2.4rem;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Top Header Banner Section (Left-aligned with background texture) -->
+    <!-- Header & Navigation Section -->
     <header class="header-banner">
-        <img src="media/images/Far%20From%20Hibernia%20Logo.jpg" alt="Far From Hibernia Logo" class="band-logo">
-        <h1 class="band-title">Far From Hibernia</h1>
+        <div class="brand-container">
+            <img src="media/images/Far%20From%20Hibernia%20Logo.jpg" alt="Far From Hibernia Logo" class="band-logo">
+            <h1 class="band-title">Far From Hibernia</h1>
+        </div>
+        <nav class="top-nav">
+            <a href="#gigs">Gigs</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </header>
 
-    <!-- Gig Flyer Section -->
-    <div class="banner-container">
-        <img src="media/images/20261009%20Callahans%20Flyer.jpg" alt="Far From Hibernia Live at Callahans - October 9, 2026" class="gig-banner">
-    </div>
+    <!-- Main Dynamic Content Box -->
+    <main class="content-container">
+
+        <!-- 1. Gigs Section -->
+        <section id="gigs" class="content-section">
+            <h2 class="section-title">Upcoming Gigs</h2>
+            <!-- New Tour Dates Schedule Table -->
+            <table class="gigs-table">
+                <tbody>
+                    <tr>
+                        <td class="gig-date">Oct 9, 2026</td>
+                        <td class="gig-venue">
+                                <a href="https://www.callahansbistro.com" style="color:white">Callahan's Irish Bistro</a>
+                        </td>
+                        <td class="gig-location">Orange Park, FL</td>
+                    </tr>
+                    <tr>
+                        <td class="gig-date">Nov 20, 2026</td>
+                        <td class="gig-venue">
+                                <a href="https://www.callahansbistro.com" style="color:white">Callahan's Irish Bistro</a>
+                        </td>
+                        <td class="gig-location">Orange Park, FL</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Footnote label text -->
+            <span class="gigs-footnote">More gigs coming soon!</span>
+            <div class="banner-container">
+                <img src="media/images/20261009%20Callahans%20Flyer.jpg" alt="Far From Hibernia Live at Callahans - October 9, 2026" class="gig-banner">
+            </div>
+        </section>
+
+        <!-- 2. About Section -->
+        <section id="about" class="content-section">
+            <h2 class="section-title">About the Band</h2>
+            <div class="about-layout">
+                <div class="about-image-wrapper">
+                    <!-- URL encoded group picture file path -->
+                    <img src="media/images/Far%20From%20Hibernia%20Group%20Picture.jpg" alt="Far From Hibernia Band Group" class="about-img">
+                </div>
+                <div class="about-text">
+                    <p>Welcome to the official home of Far From Hibernia! We are a traditional Irish traditional music outfit bringing the soaring melodies, driving rhythm, and timeless storytelling of Celtic heritage straight to local pubs and regional festivals.</p>
+                    <p>Combining authentic multi-instrumental traditional tunes, driving sea shanties, and lively pub songs, our performances blend historical reverence with infectious acoustic energy designed to get rooms moving. Sláinte!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Contact Us Section -->
+        <section id="contact" class="content-section" style="border-bottom: none;">
+            <h2 class="section-title">Booking & Contact</h2>
+            <div class="contact-card">
+                <p>Want to book Far From Hibernia for a festival, private event, or pub session?</p>
+                <p style="margin-top: 20px;"><strong>Booking Representative:</strong> Patrick Bowles</p>
+                <p><strong>Email:</strong> patt714@gmail.com</p>
+                <a href="mailto:patt714@://gmail.com" class="booking-btn">Send Booking Email</a>
+            </div>
+        </section>
+
+    </main>
 
 </body>
 </html>
