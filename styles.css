@@ -1,0 +1,268 @@
+/* Smooth scrolling physics when clicking menu links */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+}
+
+/* The Header Banner Wrapper with textured background, borders, and flex navigation */
+.header-banner {
+    display: flex;
+    align-items: center; /* Centers items vertically */
+    justify-content: space-between; /* Pushes brand to left, nav menu to right */
+    flex-wrap: wrap; /* Allows wrapping gracefully on smaller mobile displays */
+    gap: 25px; 
+    margin: 0 auto 40px auto; 
+    padding: 15px 25px; 
+    
+    /* CSS-generated textured background (subtle carbon/weave grid effect) */
+    background-color: #1a1a1a;
+    background-image: 
+        linear-gradient(30deg, #151515 12%, transparent 12.5%, transparent 87%, #151515 87.5%, #151515),
+        linear-gradient(150deg, #151515 12%, transparent 12.5%, transparent 87%, #151515 87.5%, #151515),
+        linear-gradient(30deg, #151515 12%, transparent 12.5%, transparent 87%, #151515 87.5%, #151515),
+        linear-gradient(150deg, #151515 12%, transparent 12.5%, transparent 87%, #151515 87.5%, #151515),
+        linear-gradient(60deg, #1c1c1c 25%, transparent 25.5%, transparent 75%, #1c1c1c 75.5%, #1c1c1c),
+        linear-gradient(60deg, #1c1c1c 25%, transparent 25.5%, transparent 75%, #1c1c1c 75.5%, #1c1c1c);
+    background-size: 20px 35px;
+    background-position: 0 0, 0 0, 10px 18px, 10px 18px, 0 0, 10px 18px;
+
+    /* Elegant gold accent borders */
+    border-top: 3px double #f1b82d;
+    border-bottom: 3px double #f1b82d;
+    
+    /* Clean drop shadow to separate the header from the page background */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Branding container holding logo and text */
+.brand-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* The Band Logo Styling */
+.band-logo {
+    height: 120px; 
+    width: auto;
+    border-radius: 6px; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); 
+}
+
+/* Eagle Lake Typography Tuning */
+.band-title {
+    font-family: 'Eagle Lake', serif;
+    font-size: 3.2rem; 
+    margin: 0;
+    letter-spacing: 0;
+    color: #f1b82d; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); 
+}
+
+/* Top Navigation Link Menu */
+.top-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.top-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.top-nav a:hover {
+    color: #f1b82d;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Main Structural Containers for Content Sections */
+.content-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left; /* Changes text baseline to readable left-align for blocks */
+}
+
+.content-section {
+    padding: 60px 0;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+/* Section Headings */
+.section-title {
+    font-family: 'Eagle Lake', serif;
+    color: #f1b82d;
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 30px;
+    border-bottom: 1px dashed #f1b82d;
+    padding-bottom: 10px;
+}
+
+/* Gigs Table Styling tailored to Eagle Lake font */
+.gigs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Eagle Lake', serif;
+    font-size: 1.1rem;
+    color: #dddddd;
+    margin-bottom: 20px;
+}
+
+.gigs-table tr {
+    border-bottom: 1px solid #2a2a2a;
+    transition: background-color 0.2s ease;
+}
+
+.gigs-table tr:hover {
+    background-color: rgba(241, 184, 45, 0.05); /* Subtle gold background on hover */
+}
+
+.gigs-table td {
+    padding: 15px 10px;
+    vertical-align: middle;
+}
+
+/* Specific text balances for gig information columns */
+.gig-date {
+    color: #f1b82d;
+    font-weight: bold;
+    width: 25%;
+}
+
+.gig-venue {
+    font-weight: bold;
+    color: #ffffff;
+    width: 45%;
+}
+
+.gig-location {
+    color: #aaaaaa;
+    text-align: right;
+    width: 30%;
+}
+
+.gigs-footnote {
+    font-family: 'Eagle Lake', serif;
+    font-style: italic;
+    color: #aaaaaa;
+    display: block;
+    margin: 15px 0 35px 0;
+    font-size: 1rem;
+}
+
+/* Gigs/Flyer Display Section */
+.banner-container {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.gig-banner {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* About Section Multi-Column Layout Split */
+.about-layout {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.about-image-wrapper {
+    flex: 1 1 300px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.about-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.about-text {
+    flex: 1 1 400px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #dddddd;
+    margin: 0;
+}
+
+/* Contact Details Section Styling */
+.contact-card {
+    background-color: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.contact-card p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.booking-btn {
+    display: inline-block;
+    background-color: #f1b82d;
+    color: #121212;
+    padding: 12px 24px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 15px;
+    transition: background-color 0.2s ease;
+}
+
+.booking-btn:hover {
+    background-color: #dca31f;
+}
+
+/* Footer & Copyright Styling */
+.site-footer {
+    max-width: 800px;
+    margin: 40px auto 20px auto;
+    padding: 20px 0;
+    border-top: 1px solid #2a2a2a;
+    color: #666666;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+/* Responsive Layout Overrides for Mobile Phones */
+@media (max-width: 768px) {
+    .header-banner {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        padding: 20px 10px;
+    }
+    .brand-container {
+        flex-direction: column;
+    }
+    .top-nav {
+        justify-content: center;
+        width: 100%;
+    }
+    .band-title {
+        font-size: 2.4rem;
+    }
+}
