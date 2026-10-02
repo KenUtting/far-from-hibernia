@@ -12,6 +12,20 @@ body {
     margin: 0;
 }
 
+/* Hide text visually while keeping it available to assistive technology. */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
 /* The Header Banner Wrapper with textured background, borders, and flex navigation */
 .header-banner {
     display: flex;
@@ -122,12 +136,12 @@ body {
     margin-bottom: 20px;
 }
 
-.gigs-table tr {
+.gigs-table tbody tr {
     border-bottom: 1px solid #2a2a2a;
     transition: background-color 0.2s ease;
 }
 
-.gigs-table tr:hover {
+.gigs-table tbody tr:hover {
     background-color: rgba(241, 184, 45, 0.05); /* Subtle gold background on hover */
 }
 
@@ -150,7 +164,7 @@ body {
 }
 
 .gig-location {
-    color: #aaaaaa;
+    color: #ccc;
     text-align: right;
     width: 30%;
 }
@@ -158,7 +172,7 @@ body {
 .gigs-footnote {
     font-family: 'Eagle Lake', serif;
     font-style: italic;
-    color: #aaaaaa;
+    color: #ccc;
     display: block;
     margin: 15px 0 35px 0;
     font-size: 1rem;
@@ -176,6 +190,16 @@ body {
     width: 100%;
     height: auto;
     display: block;
+}
+
+.event-details {
+    color: #dddddd;
+    line-height: 1.6;
+}
+
+.event-details h3,
+.event-details a {
+    color: #f1b82d;
 }
 
 /* About Section Multi-Column Layout Split */
@@ -243,7 +267,7 @@ body {
     margin: 40px auto 20px auto;
     padding: 20px 0;
     border-top: 1px solid #2a2a2a;
-    color: #666666;
+    color: #999999;
     font-size: 0.9rem;
     letter-spacing: 1px;
 }
