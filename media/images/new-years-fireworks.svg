@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 220" role="img" aria-labelledby="title description">
+  <title id="title">New Year's Eve fireworks</title>
+  <desc id="description">Animated gold and green fireworks celebrating the arrival of 2027.</desc>
+  <rect width="800" height="220" rx="18" fill="#07101d"/>
+  <circle cx="100" cy="55" r="3" fill="#f1b82d">
+    <animate attributeName="r" values="3;38;3" dur="2.4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;0;1" dur="2.4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="690" cy="70" r="3" fill="#69b578">
+    <animate attributeName="r" values="3;42;3" dur="2s" begin=".6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;0;1" dur="2s" begin=".6s" repeatCount="indefinite"/>
+  </circle>
+  <g fill="none" stroke-linecap="round" stroke-width="4">
+    <g transform="translate(100 55)" stroke="#f1b82d">
+      <path d="M0-34V-12M24-24L10-10M34 0H12M24 24L10 10M0 34V12M-24 24L-10 10M-34 0H-12M-24-24L-10-10">
+        <animate attributeName="stroke-opacity" values="0;1;0" dur="2.4s" repeatCount="indefinite"/>
+      </path>
+    </g>
+    <g transform="translate(690 70)" stroke="#69b578">
+      <path d="M0-38V-14M27-27L11-11M38 0H14M27 27L11 11M0 38V14M-27 27L-11 11M-38 0H-14M-27-27L-11-11">
+        <animate attributeName="stroke-opacity" values="0;1;0" dur="2s" begin=".6s" repeatCount="indefinite"/>
+      </path>
+    </g>
+  </g>
+  <text x="400" y="132" fill="#f7f1df" font-family="Georgia, serif" font-size="74" font-weight="700" text-anchor="middle">HELLO 2027</text>
+  <text x="400" y="174" fill="#f1b82d" font-family="Georgia, serif" font-size="24" letter-spacing="7" text-anchor="middle">NEW YEAR'S EVE</text>
+</svg>

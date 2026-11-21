@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Callahan's Irish Bistro",
+        "url": "https://www.callahansbistro.com",
+        "location": "Orange Park, FL",
+        "phone": "(904) 541-4274"
+    },
+    {
+        "name": "Fionn MacCool's",
+        "url": "https://fionnmacs.com",
+        "location": "Ponte Vedra, FL",
+        "phone": "(904) 217-7021"
+    },
+    {
+        "name": "St. Augustine Celtic Festival & Highland Games",
+        "url": "https://www.visitstaugustine.com/event/st-augustine-celtic-festival-highland-games",
+        "location": "St. Augustine, FL",
+        "phone": null
+    }
+]

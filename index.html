@@ -15,6 +15,7 @@
     
     <link rel="stylesheet" href="media/css/styles.css">
     <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script>
 </head>
 <body>
 
@@ -47,70 +48,56 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- <tr>
-                        <td class="gig-date">Nov 20, 2026</td>
-                        <td class="gig-venue">
-                                <a href="https://www.callahansbistro.com/?utm_source=FarFromHiberna&utm_medium=band_site&utm_campaign=upcoming_shows" target="_blank" style="color:white">
-                                    Callahan's Irish Bistro
-                                </a>
-                        </td>
-                        <td class="gig-location">Orange Park, FL</td>
-                    </tr> -->
                     <tr>
                         <td class="gig-date">Dec 31, 2026</td>
                         <td class="gig-venue">
-                            <a href="https://fionnmacs.com/?utm_source=FarFromHiberna&utm_medium=band_site&utm_campaign=upcoming_shows" target="_blank" style="color:white">
-                                Fionn MacCool's
-                            </a>
+                            <a data-venue-name="Fionn MacCool's" target="_blank"></a>
                         </td>
-                        <td class="gig-location">Ponte Vedra, FL</td>
+                        <td class="gig-location" data-venue-location="Fionn MacCool's"></td>
                     </tr>
                     <tr>
                         <td class="gig-date">Jan 23, 2027</td>
                         <td class="gig-venue">
-                            <a href="https://fionnmacs.com/?utm_source=FarFromHiberna&utm_medium=band_site&utm_campaign=upcoming_shows" target="_blank" style="color:white">
-                                Fionn MacCool's
-                            </a>
+                            <a data-venue-name="Fionn MacCool's" target="_blank"></a>
                         </td>
-                        <td class="gig-location">Ponte Vedra, FL</td>
+                        <td class="gig-location" data-venue-location="Fionn MacCool's"></td>
                     </tr>
                     <tr>
                         <td class="gig-date">Mar 13, 2027</td>
                         <td class="gig-venue">
-                            <a href="https://www.visitstaugustine.com/event/st-augustine-celtic-festival-highland-games?utm_source=FarFromHiberna&utm_medium=band_site&utm_campaign=upcoming_shows" target="_blank" style="color:white">
-                                St. Augustine Celtic Festival & Highland Games
-                            </a>
+                            <a data-venue-name="St. Augustine Celtic Festival & Highland Games" target="_blank"></a>
                         </td>
-                        <td class="gig-location">St. Augustine, FL</td>
+                        <td class="gig-location" data-venue-location="St. Augustine Celtic Festival & Highland Games"></td>
                     </tr>
                     <tr>
                         <td class="gig-date">Mar 17, 2027</td>
                         <td class="gig-venue">
-                            <a href="https://www.farfromhibernia.com?utm_source=FarFromHiberna&utm_medium=band_site&utm_campaign=upcoming_shows" target="_blank" style="color:white">
+                            <a href="https://www.farfromhibernia.com?utm_source=FarFromHiberna&utm_medium=band_site&utm_campaign=upcoming_shows" target="_blank">
                                 Private Party
                             </a>
                         </td>
                         <td class="gig-location">Jacksonville, FL</td>
-                    </tr
+                    </tr>
                 </tbody>
             </table>
 
             <!-- Footnote label text -->
             <span class="gigs-footnote">More gigs coming soon!</span>
+
+            <!-- Banner for next gig -->
             <div class="banner-container">
-                <img src="media/images/20261231%20Fionn%20MacCools%20Flyer.png" alt="Fionn MacCool's Decemner 31, 2026 Flyer" class="gig-banner">
+                <img src="media/images/20261231%20Fionn%20MacCools%20Flyer.png" alt="Fionn MacCool's December 31, 2026 flyer" class="gig-banner">
             </div>
-            <section class="event-details" aria-labelledby="featured-gig-title">
-                
-                <!-- <h3 id="featured-gig-title">Far From Hibernia live at Callahan's Irish Bistro</h3> -->
-                <h3 id="featured-gig-title">Far From Hibernia live at Fionn MacCool's</h3>
-                <p>Join us for a night of Irish tunes, songs, stories, and more. Great music, good food, and good company. Music travels well!</p>
+
+            <!-- Details for next gig -->
+            <section class="event-details" aria-labelledby="featured-gig-title" data-featured-venue="Fionn MacCool's">
+                <img src="media/images/new-years-fireworks.svg" alt="Animated New Year's Eve fireworks welcoming 2027" class="new-years-art">
+                <h3 id="featured-gig-title">Far From Hibernia live at <span data-featured-venue-name></span></h3>
+                <p>Ring in the New Year with a night of Irish tunes, songs, stories, and more. Great music, good food, and good company. Music travels well!</p>
                 <p><strong>Date:</strong> <time datetime="2026-12-31">New Year's Eve! December 31, 2026</time></p>
                 <p><strong>Performance time:</strong> <time datetime="17:00">5:00 PM</time> to <time datetime="19:30">7:30 PM</time></p>
-                <!-- <p><strong>Venue:</strong> Callahan's Irish Bistro, Orange Park, FL</p>
-                <p><strong>Call for reservations:</strong> <a href="tel:+19045414274">(904) 541-4274</a></p> -->
-                <p><strong>Venue:</strong> Fionn MacCool's, Ponte Vedra, FL</p>
-                <p><strong>Call for reservations:</strong> <a href="tel:+19042177021">(904) 217-7021</a></p>
+                <p id="featured-venue-location"><strong>Venue:</strong> <span data-featured-venue-location></span></p>
+                <p id="featured-venue-phone"><strong>Call for reservations:</strong> <a data-featured-venue-phone></a></p>
             </section>
         </section>
 
